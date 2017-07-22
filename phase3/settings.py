@@ -44,7 +44,7 @@ DEBUG = False
 #        default=config('DATABASE_URL')
 #    )
 #}
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['babaiee93105483.herokuapp.com'])
+ALLOWED_HOSTS = ['babaiee93105483.herokuapp.com']
 
 DATABASES = {
     'default': {
