@@ -32,20 +32,27 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'n#tw8ib9o1a!4u3+@@51b-hn0$-dm&cfcsrlkytpf!3zg20m2)'
+SECRET_KEY = 'n#tw8ib9o1a!4u3+@@51b-hn0$-dm&cfcsrlkytpf!3zg20m2)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = False
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
-}
+DEBUG = False
+#SECRET_KEY = config('SECRET_KEY')
+#DEBUG = config('DEBUG', default=False, cast=bool)
+#DATABASES = {
+#    'default': dj_database_url.config(
+#        default=config('DATABASE_URL')
+#    )
+#}
 ALLOWED_HOSTS = []
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
+DATABASES['default'] =  dj_database_url.config()
 # Application definition
 
 INSTALLED_APPS = [
