@@ -66,9 +66,17 @@ INSTALLED_APPS = [
     'blogs',
     'users',
     'corsheaders',
+    'opbeat.contrib.django',
 ]
 
+OPBEAT = {
+    'ORGANIZATION_ID': 'a4338fe2e8dd466c8cabbb9f547af9f3',
+    'APP_ID': 'aadaa04e31',
+    'SECRET_TOKEN': '8c413e165c2780c94bef97454c002c202219509d',
+}
+
 MIDDLEWARE = [
+    'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
